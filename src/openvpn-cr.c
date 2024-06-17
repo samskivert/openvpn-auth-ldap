@@ -29,7 +29,7 @@ int extract_openvpn_cr(const char *response, openvpn_response *result, char **er
 	tokenIndexes[0] = response;
 	int tokenCnt = 1;
 	const char *p;
-	for (p = response; *p; ++p) {
+	for (p = response; *p && tokenCnt < 15; ++p) {
 		if (*p == ':')
 			tokenIndexes[tokenCnt++] = p + 1;
 	}
